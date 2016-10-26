@@ -4,6 +4,9 @@ from functools import wraps
 
 
 def chunk_generator(_list, size):
+    """
+    Generator yielding chunks of `_list` with `size` members
+    """
     for i in xrange(0, len(_list), size):
         yield _list[i:i+size]
 
@@ -25,6 +28,9 @@ def dict_path(dct, k, default=None):
 
 
 def write_dict_path(dct, k, value):
+    """
+    set dict_path(dct, k) to value
+    """
     parts = k.split('.')
     valkey = parts.pop()
     out = dct
@@ -37,7 +43,25 @@ def write_dict_path(dct, k, value):
     out[valkey] = value
 
 
+def dotkeys(dct, prefix=None):
+    """
+    return list of (key, value) for everything in dct where key is the
+    'dict_path'-style dotted name
+    """
+    d = []
+    for k, v in dct.iteritems():
+        dn = "%s.%s" % (prefix, k) if prefix else k
+        if type(v) == dict:
+            d += dotkeys(v, dn)
+        else:
+            d.append((dn, v))
+    return d
+
+
 def cron_daynumber(day):
+    """
+    translate word days into cron day number
+    """
     return {
         'sunday': 0,
         'monday': 1,
@@ -59,10 +83,17 @@ def cron_to_python_daynumber(d):
 
 
 def parse_cron(spec):
-    return dict(zip(['minute', 'hour', 'day_of_month', 'month', 'day_of_week'], spec.split(' ')))
+    """
+    turns a cronspec string (eg. 12 4 * * *) into a dict
+    """
+    return dict(zip(['minute', 'hour', 'day_of_month',
+                     'month', 'day_of_week'], spec.split(' ')))
 
 
 def cron(spec, dt=None):
+    """
+    test if the cronspec specified by spec matches the time passed as dt or now
+    """
     if isinstance(spec, basestring):
         cronspec = parse_cron(spec)
     else:
@@ -98,6 +129,9 @@ def cron(spec, dt=None):
 
 
 def set_interval(interval):
+    """
+    Call decorated funtion every `interval` seconds
+    """
     def decorator(f):
         @wraps(f)
         def wrapper(*args, **kwargs):
