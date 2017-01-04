@@ -14,8 +14,7 @@ def chunk_generator(_list, size):
 def dict_path(dct, k, default=None):
     """
     Turns dotted 'path' into dict key.
-    snippet.thumbnails.default ->
-        dct['snippet']['thumbnails']['default']
+    snippet.thumbnails.default -> dct['snippet']['thumbnails']['default']
     """
     parts = k.split('.')
     out = dct
@@ -84,7 +83,7 @@ def cron_to_python_daynumber(d):
 
 def parse_cron(spec):
     """
-    turns a cronspec string (eg. 12 4 * * *) into a dict
+    turns a cronspec string (eg. 12 4 \* \* \*) into a dict
     """
     return dict(zip(['minute', 'hour', 'day_of_month',
                      'month', 'day_of_week'], spec.split(' ')))

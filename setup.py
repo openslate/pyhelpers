@@ -7,5 +7,5 @@ setup(
     author="Mike O'Malley",
     author_email="mikeo@openslatedata.com",
     license="MIT",
-    uri="https://github.com/openslate/pyhelpers",
+    url="https://github.com/openslate/pyhelpers",
 )
