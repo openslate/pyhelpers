@@ -45,13 +45,3 @@ Welcome to pyhelpers's documentation!
 **pyhelpers.progbar.progbar(t, c=None)**
 
    Draw progress bar of t/100 across screen width c
-
-
-Indices and tables
-******************
-
-* `Index <wiki/Genindex>`_
-
-* `Module Index <wiki/Py-Modindex>`_
-
-* `Search Page <wiki/Search>`_
