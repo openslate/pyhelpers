@@ -13,6 +13,9 @@ Welcome to pyhelpers's documentation!
 .. automodule:: pyhelpers
    :members:
 
+.. automodule:: pyhelpers.progbar
+   :members:
+
 
 
 Indices and tables
