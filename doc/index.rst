@@ -15,12 +15,3 @@ Welcome to pyhelpers's documentation!
 
 .. automodule:: pyhelpers.progbar
    :members:
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
