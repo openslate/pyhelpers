@@ -52,8 +52,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'pyhelpers'
-copyright = u'2017, Mike O\'Malley'
-author = u'Mike O\'Malley'
+copyright = u'2017, Outrigger Media, Inc.'
+author = u"Mike O'Malley"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -163,10 +163,14 @@ rst_file_suffix = '.rst'
 rst_link_suffix = ''
 rst_line_width = 78
 rst_indent = 4
+
+
 def rst_file_transform(docname):
     if docname == 'index':
         docname = 'home'
     return docname.title() + rst_file_suffix
+
+
 def rst_link_transform(docname):
     if docname == 'index':
         return 'wiki'
