@@ -8,4 +8,5 @@ setup(
     author_email="mikeo@openslatedata.com",
     license="MIT",
     url="https://github.com/openslate/pyhelpers",
+    packages=['pyhelpers'],
 )
