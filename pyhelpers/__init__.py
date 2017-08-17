@@ -11,6 +11,19 @@ def chunk_generator(_list, size):
         yield _list[i:i+size]
 
 
+def dict_merge(d1, d2):
+    """
+    Recursively merge multidimensional dict. d2 overrides d1
+    """
+    for k, v2 in d2.items():
+        v1 = d1.get(k)
+        if (isinstance(v1, dict) and isinstance(v2, dict)):
+            dict_merge(v1, v2)
+        else:
+            d1[k] = v2
+    return d1
+
+
 def dict_path(dct, k, default=None):
     """
     Turns dotted 'path' into dict key.
